@@ -1,0 +1,5 @@
+MATLAB (R2022a or newer recommended)
+
+Simulink
+
+Optimization Toolbox (Optional, for curve fitting)

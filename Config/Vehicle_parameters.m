@@ -1,0 +1,132 @@
+% M_sprung = 235.76;                 % Sprung Mass (Kg)
+% Mf_unsprung = 51.338/2;            % Unsprung Mass (Kg)
+% Mr_unsprung = Mf_unsprung;
+% Kf_unsprung = 12000;               % Tire Rate (N/m)
+% Kf_sprung = 1600;                  % Spring Rate (N/m)
+% Kr_unsprung = Kf_unsprung;
+% Kr_sprung = Kf_sprung;
+% Cf_unsprung = 1800;                % Tire Damping Coeeficient (N.s/m)
+% Cr_unsprung = Cf_unsprung;
+% Cf_sprung = 3000;                  % Damping Coeeficient (N.s/m)
+% Cr_sprung = Cf_sprung;
+% I_sprung = 2500;
+% l = 0.75;
+% Mv      =   335;        %Mass of vehicle, Kg
+% g       =   9.81;       %Acceleration due to gravity, m/s^2
+% GR      =   3.615;      %Gear ratio
+% r       =   0.2603;     %radius 0f tyre, m
+% %T_m     =   240;        %Torque from motor, N-m
+% J_tyre  =   0.1695;     %Rotational inertia of 1 Tyre+Wheel, kg-m^2
+% J_diff  =   0.003;      %Rotational inertia of Differential, kg-m^2
+% J_shaft =   2.11e-4;    %Rotational inertia of 1 Half Shaft, kg-m^2
+% J_hub   =   0.0392;     %Rotational Inertia of 1 Hub, kg-m^2
+% J_motor =   0.04;       %Rotational Inertia of the Motor, kg-m^2
+% Cd      =   1.02;       %Coefficient of drag
+% Cl      =  -2.15;       %Coefficient of lift                             
+% Af      =   1.13;       %Frontal Area
+% Cr      =   0.008;      %Coefficient of rolling friction   
+% rho     =   1.164;      %Air density, Kg/m^3
+% eta     =   0.85;       %Drivetrain Efficiency
+% wb      =   1.53;       %Wheelbase, m
+% h_cg    =   0.35;       %CG Height, m
+% mu      =   1.85;       %Coefficient of friction
+% Ir = 2*J_tyre + 2*J_shaft + 2*J_hub + J_diff + J_motor*GR^2;
+% If = 2*J_tyre;
+% v = 25;
+tw_front= 1.16;
+tw_rear=1.145;
+wb      =   1.530;                                        % Wheelbase, m
+Mv      =   235.76 + 51.338;                              % Mass of vehicle, Kg
+M_sprung = 235.76;                                        % Sprung Mass (Kg)
+M_unsprung = 51.338;                                      % Unsprung Mass (Kg)
+Ms_fraction = 0.500;                                      % Sprung Mass Distribution Rear
+Mus_fraction = 0.5125;                                    % Unsprung Mass Distribution Rear
+Mr_unsprung = M_unsprung*Mus_fraction;                    % Front Unsprung Mass (Kg)
+Mf_unsprung = M_unsprung-Mr_unsprung;
+a = wb*(1-Ms_fraction);                                   % Centre of Gravity Distance from Front (m)
+b = wb*Ms_fraction;                                       % Centre of Gravity Distance from Rear (m)
+I_PITCH = 100;
+% Moment of Inertia for Pitch (Kg-m^2)
+I_ROLL= 100;
+h_cg    =   0.3;                                          % CG Height, m
+r       =   0.2603;                                       %radius 0f tyre, m
+rho = 1.23;                                               % Density of air (kg/m^3)
+Af = 1.062;                                               % Frontal Area (m^2)
+Cl = -1.34;                                               % Aerodynamic Downforce Coefficient
+Cd = 1.05;                                                % Aerodynamic Drag Coefficient
+
+
+Kf_unsprung = 120000/2;               % Tire Rate (N/m)
+Kf_sprung = 54151.3357/2;                  % Spring Rate (N/m)
+Kr_unsprung = Kf_unsprung;
+Kr_sprung = 49614.7/2;
+Cf_unsprung = 1800/2;                % Tire Damping Coeeficient (N.s/m)
+Cr_unsprung = Cf_unsprung;
+%Cf_sprung = 3000;                  % Damping Coeeficient (N.s/m)
+%Cr_sprung = Cf_sprung;
+
+l = wb/2;
+g       =   9.81;       %Acceleration due to gravity, m/s^2
+GR      =   3.615;      %Gear ratio
+%T_m     =   240;        %Torque from motor, N-m
+J_tyre  =   0.1695;     %Rotational inertia of 1 Tyre+Wheel, kg-m^2
+J_diff  =   0.003;      %Rotational inertia of Differential, kg-m^2
+J_shaft =   2.11e-4;    %Rotational inertia of 1 Half Shaft, kg-m^2
+J_hub   =   0.0392;     %Rotational Inertia of 1 Hub, kg-m^2
+J_motor =   0.04;       %Rotational Inertia of the Motor, kg-m^2                         
+Cr      =   0.008;      %Coefficient of rolling friction   
+eta     =   0.85;       %Drivetrain Efficiency
+mu      =   1.85;       %Coefficient of friction
+Ir = 2*J_tyre + 2*J_shaft + 2*J_hub + J_diff + J_motor*GR^2;
+If = 2*J_tyre;
+v = 25;
+
+
+%% VD Parameters
+%wheelbase = 1.530;                          % Wheelbase of the vehicle (m)
+%m = 235.76+51.338;                                  % Net Mass
+Ms = 235.76;                                % Sprung Mass (Kg)
+%Mus = 51.338;                               % Unsprung Mass (Kg)
+Ms_fraction = 0.5003;                       % Sprung Mass Distribution Rear
+%Mus_fraction = 0.5125;                      % Unsprung Mass Distribution Rear
+ms_r = Ms*Ms_fraction;                      % Rear Sprung mass (kg)
+ms_f = Ms-ms_r;                             % Front Sprung mass (kg)
+%Musr = Mus*Mus_fraction;                    % Front Unsprung Mass (Kg)
+%Musf = Mus-Musr;                            % Rear Unsprung Mass (Kg)
+%a = wheelbase*(1-Ms_fraction);              % Centre of Gravity Distance from Front (m)
+%b = wheelbase*Ms_fraction;                  % Centre of Gravity Distance from Rear (m)
+%I = 100;                                    % Moment of Inertia for Pitch (Kg-m^2)
+%y_static = 0.30;                             % Static Ride Height (m)
+%R0 = TireModel.TireData.UNLOADED_RADIUS;            % Loaded Radius (m)
+%bump_width = 0.3;                                   % (m)
+%Gam = 0;                                            % Camber
+%% Aero parameters
+%rho = 1.23;                                 % Density of air (kg/m^3)
+%A = 1.062;                                  % Frontal Area (m^2)
+%Cl = 1.34;                                  % Aerodynamic Downforce Coefficient
+%Cd = 1.05;                                  % Aerodynamic Drag Coefficient
+%lx = a-b;                                   % Longitudinal Distance of Aerodynamic Downforce Application Point with CG (m)
+%hd = 0;                                     % Lateral Distance of Aerodynamic Drag Application Point with CG (m)
+%% Suspension parameters
+%f_front   = 3.27;                           % Ride frequency at front wheel (Hz)
+%f_rear    = 3.88;                           % Ride frequency at rear wheel (Hz)
+MR_front  = 0.92;                           % Motion ratio at front wheel (wheel/spring)
+MR_rear   = 0.92;                           % Motion ratio at rear wheel (wheel/spring)
+%Kt       = 120000;                          % Tire Rate (N/m)
+dr_f      = 0.7;                            % Damping ratio front wheel
+dr_r      = 0.7;                            % Damping ratio rear wheel
+
+
+wheel_rate_f = 49588.77037;
+wheel_rate_r = 99177.54074;
+Cr_front = 2.*sqrt(wheel_rate_f.*ms_f/2);           % Critical damping coeff front (Ns/m)
+Cr_rear = 2.*sqrt(wheel_rate_r.*ms_r/2);            % Critical damping coeff rear (Ns/m) 
+damping_coeff_f = dr_f.*Cr_front;                   % Effective damping rate front wheel (Ns/m)
+damping_coeff_r = dr_r.*Cr_rear;                    % Effective damping rate rear wheel (Ns/m)
+b_front = 2.*damping_coeff_f;                       % Effective damping rate front axle (Ns/m)
+b_rear = 2.*damping_coeff_r;                        % Effective damping rate rear axle (Ns/m)
+
+Damping_Coeff_fornt = damping_coeff_f.*(MR_front*MR_front); % Damper Coeff Front wheel (Ns/m)
+Damping_Coeff_rear = damping_coeff_r.*(MR_rear*MR_rear);    % Damper Coeff Rear wheel (Ns/m)
+Cf_sprung = Damping_Coeff_fornt;
+Cr_sprung = Damping_Coeff_rear;
