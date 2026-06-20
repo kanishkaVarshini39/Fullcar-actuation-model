@@ -38,3 +38,8 @@ The framework isolates car body dynamics from high-frequency road inputs to mini
 │       └── full_car_with_antiroll.slx
 ├── requirements.txt         
 └── README.md
+```
+## Setup
+1.Run the vehicle_parameters.m to upload all the data.
+
+2.Run the model from the src
