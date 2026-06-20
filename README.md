@@ -21,7 +21,7 @@ The framework isolates car body dynamics from high-frequency road inputs to mini
 
 ```text
 ├── config/
-│   └── vehicle_params.m       # Sprung/unsprung mass, track width, and damping constants
+│   └── vehicle_parameters.m       # Sprung/unsprung mass, track width, and damping constants
 ├── src/
 │   ├── tire_behaviour/        # Pacejka force curves plotting scripts
 │   │   ├── longitudinal_force.m
@@ -36,8 +36,10 @@ The framework isolates car body dynamics from high-frequency road inputs to mini
 │   └── full_car/              # 10 DOF complete vehicle system equations
 │       ├── full_car_actuation.slx
 │       └── full_car_with_antiroll.slx
+├── .gitignore
 ├── requirements.txt         
 └── README.md
+
 ```
 ## Setup
 1.Run the vehicle_parameters.m to upload all the data.
