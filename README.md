@@ -21,9 +21,9 @@ The framework isolates car body dynamics from high-frequency road inputs to mini
 
 ```text
 ├── config/
-│   └── vehicle_parameters.m       # Sprung/unsprung mass, track width, and damping constants
+│   └── vehicle_parameters.m       # Vehicle data and parameters
 ├── src/
-│   ├── tire_behaviour/        # Pacejka force curves plotting scripts
+│   ├── tire_behaviour/        # Tire Force modelling using Pacejka
 │   │   ├── longitudinal_force.m
 │   │   └── lateral_force.m
 │   ├── quarter_car/           # 2 DOF vertical dynamics simulation
